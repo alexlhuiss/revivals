@@ -1,0 +1,21 @@
+Package: revivals
+Title: Robust Estimation for Variables with Influential VALues in
+        Survey
+Version: 0.0.0.9200
+Authors@R: 
+    person(given = "Cyril",
+           family = "Favre-Martinoz",
+           role = c("aut", "cre"),
+           email = "cyrilfavremartinoz@hotmail.com")
+Description: This package contrains some functions that estimate the conditional bias, calculate the proposed robust estimators and compute the weights associated to the winsorized estimator for particular designs.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 7.1.1
+Depends: R (>= 2.10)
+NeedsCompilation: no
+Packaged: 2021-01-24 15:54:03 UTC; Cyril
+Author: Cyril Favre-Martinoz [aut, cre]
+Maintainer: Cyril Favre-Martinoz <cyrilfavremartinoz@hotmail.com>

@@ -1,0 +1,66 @@
+## ---- include = FALSE---------------------------------------------------------
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+## ----setup--------------------------------------------------------------------
+library(revivals)
+
+## ----eval=FALSE, include=TRUE-------------------------------------------------
+#  ##Load the data set
+#  data("jeu_donnees")
+#  
+#  #Define the poulation size
+#  N=nrow(jeu_donnees)
+#  
+#  
+#  #Define the inclusion probabilities in each stratum
+#  pii_strata<-cbind(c(1,2,3,4),c(30,20,45,15)/c(table(jeu_donnees$strata)))
+#  pii_strata<-as.data.frame(pii_strata)
+#  names(pii_strata)=c("strata","piks")
+#  datas<-merge(jeu_donnees,pii_strata,by.x="strata",by.y="strata")
+#  
+#  
+#  ##Draw a stratified sampled using the package sampling#
+#  library(sampling)
+#  
+#  st=strata(datas,stratanames=c("strata"),size=c(30,20,45,15), method="srswor")
+#  # Get the sample data
+#  ech<-getdata(datas, st)
+#  #Create the vector of the population size in each stratum
+#  gnh<-as.vector(table(jeu_donnees$strata))
+
+## ----eval=FALSE, include=TRUE-------------------------------------------------
+#  
+#  #>Compute the conditional bias of the sampled unit for the Horvitz-Thompson estimator for non stratified case "HTcondbiasest"
+#  HTcondbiasest(data=ech, varname = c("Valeur.fonciere_num","Surface.reelle.bati"), gn=N, method=c("si"),pii=ech$piks,remerge = F)
+#  
+
+## ----eval=FALSE, include=TRUE-------------------------------------------------
+#  
+#  #>Compute the conditional bias of the sampled unit for the Horvitz-Thompson estimator for stratified case "strata_HTcondbiasest"
+#  strata_HTcondbiasest(data=ech, strataname = c("strata"),varname = c("Valeur.fonciere_num","Surface.reelle.bati"), gnh=as.vector(table(jeu_donnees$strata)), method = c("si"), pii=ech$piks)
+#  
+
+## ----eval=FALSE, include=TRUE-------------------------------------------------
+#  
+#  #>Compute the robuste estimator of Beaumont et al. (2013) for Non Stratified case
+#  robustest(data=ech, varname = c("Valeur.fonciere_num","Surface.reelle.bati"), gn=N, method = c("si"), pii=ech$piks)
+#  
+
+## ----eval=FALSE, include=TRUE-------------------------------------------------
+#  
+#  #>Compute the robuste estimator of Beaumont et al. (2013) for stratified case
+#  strata_robustest(data=ech,strataname = "strata",varname = c("Valeur.fonciere_num"), gnh=gnh, method = "si",pii=ech$piks)
+
+## ----eval=FALSE, include=TRUE-------------------------------------------------
+#  
+#  #>Compute the robust weight associated with a winsorized estimator
+#  weightswin.r(data=ech, varname =c("Valeur.fonciere_num","Surface.reelle.bati"),gn=N,method="si", pii=ech$piks,typewin="BHR",tailleseq=1000000,remerge=F)
+
+## ----eval=FALSE, include=TRUE-------------------------------------------------
+#  
+#  #>Compute the robust weight associated with a winsorized estimator for stratified case
+#  strata_weightswin.r(data=ech,strataname = c("strata"), varname =c("Valeur.fonciere_num"),gnh=gnh,method="si", pii=ech$piks,typewin="BHR",tailleseq=1000,remerge=F)
+
